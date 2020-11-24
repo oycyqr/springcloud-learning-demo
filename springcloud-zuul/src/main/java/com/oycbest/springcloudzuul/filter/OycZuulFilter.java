@@ -34,16 +34,30 @@ public class OycZuulFilter extends ZuulFilter {
     @Override
     public Object run() throws ZuulException {
         System.out.println("经过 zuul Filter：OycZuulFilter");
-        //向header中添加鉴权令牌
         RequestContext requestContext = RequestContext.getCurrentContext();
-        //获取header
         HttpServletRequest request = requestContext.getRequest();
-        String authorization = request.getHeader("Authorization");
-        // 没有认证信息或者不是admin，不允许访问
-        if (authorization == null || !authorization.equalsIgnoreCase("admin")) {
+        //登录界面，放行
+        if (request.getRequestURL().indexOf("/login") > 0) {
+            return null;
+        }
+        try {
+            //获取header
+            String authorization = request.getHeader("Authorization");
+            // 没有认证信息或者不是admin，不允许访问
+            if (authorization != null && authorization.equalsIgnoreCase("admin")) {
+                requestContext.addZuulRequestHeader("Authorization", authorization);
+                return null;
+            }
+        } catch (Exception e) {
             //终止运行
             requestContext.setSendZuulResponse(false);
+            requestContext.setResponseStatusCode(403);
         }
+        //终止运行
+        requestContext.setSendZuulResponse(false);
+        requestContext.setResponseStatusCode(403);
+        requestContext.setResponseBody("权限不足");
+        requestContext.getResponse().setContentType("text/htm1 ; charset=utf-8");
         return null;
     }
 }
