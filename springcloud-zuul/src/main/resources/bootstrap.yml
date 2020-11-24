@@ -2,7 +2,7 @@ spring:
   cloud:
     config:
       name: springcloud
-      profile: user
+      profile: zuul
       label: master
       uri: http://127.0.0.1:9000 #配置中心地址
 
