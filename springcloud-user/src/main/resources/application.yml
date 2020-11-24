@@ -1,0 +1,11 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:80/eureka/
+server:
+  port: 8001
+  servlet:
+    context-path: /user
+spring:
+  application:
+    name: user
