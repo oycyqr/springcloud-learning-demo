@@ -1,5 +1,8 @@
 package com.oycbest.springclouduser.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +20,10 @@ import java.util.List;
 @RestController
 @RequestMapping("user")
 public class UserController {
+    @Autowired
+    private Environment environment;
+
+
     @GetMapping
     public List list() {
         ArrayList<Object> list = new ArrayList<>();
@@ -24,6 +31,12 @@ public class UserController {
         list.add("小花");
         list.add("小红");
         list.add("小秋");
+        try {
+            String eurekaServiceUrl = environment.getProperty("eureka.client.serviceUrl.defaultZone");
+            System.out.println("eureka.serviceUrl" + eurekaServiceUrl);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return list;
     }
 }

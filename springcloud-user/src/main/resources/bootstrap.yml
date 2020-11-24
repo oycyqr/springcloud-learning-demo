@@ -1,0 +1,14 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: springcloud-user
+  cloud:
+    config:
+      enabled: true
+      name: application
+      profile: eureka
+      #      label: master
+      uri: http://127.0.0.1:9000

@@ -1,0 +1,9 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+user:
+  name: ouyang
+  password: 1223456
+  age: 18
+  sex: male
