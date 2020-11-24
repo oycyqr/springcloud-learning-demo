@@ -39,8 +39,10 @@ public class OycZuulFilter extends ZuulFilter {
         //获取header
         HttpServletRequest request = requestContext.getRequest();
         String authorization = request.getHeader("Authorization");
-        if (authorization != null) {
-            requestContext.addZuulRequestHeader("Authorization", authorization);
+        // 没有认证信息或者不是admin，不允许访问
+        if (authorization == null || !authorization.equalsIgnoreCase("admin")) {
+            //终止运行
+            requestContext.setSendZuulResponse(false);
         }
         return null;
     }
