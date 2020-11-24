@@ -1,11 +1,11 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:80/eureka/
+      defaultZone: http://localhost:8888/eureka/
 server:
   port: 8001
   servlet:
-    context-path: /user
+    context-path: /
 spring:
   application:
-    name: user
+    name: springcloud-user
