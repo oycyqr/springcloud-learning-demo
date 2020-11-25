@@ -4,8 +4,8 @@ ribbon:
 spring:
   cloud:
     config:
-      name: springcloud
-      profile: user
+      name: user
+      profile: dev
       label: master
       uri: http://127.0.0.1:9000 #配置中心地址
 

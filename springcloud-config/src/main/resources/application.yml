@@ -8,7 +8,7 @@ server:
     context-path: /
 spring:
   application:
-    name: springcloud‐config
+    name: server‐config
   cloud:
     config:
       server:

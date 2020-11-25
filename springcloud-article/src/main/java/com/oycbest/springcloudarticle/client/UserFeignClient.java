@@ -13,7 +13,7 @@ import java.util.List;
  * @Date 2020/11/25 11:06
  * @Version
  */
-@FeignClient(value = "springcloud-user")//,path = "user")
+@FeignClient(value = "cloudServerUser")//,path = "user")
 public interface UserFeignClient {
     /**
      * 获取所有文章
