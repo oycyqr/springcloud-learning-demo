@@ -1,7 +1,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8888
+      defaultZone: http://localhost:8888/eureka/
 user:
   name: ouyang
   password: 1223456

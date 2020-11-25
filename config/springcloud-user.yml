@@ -1,0 +1,17 @@
+# eureka注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+server:
+  port: 8001 #服务端口
+
+# 自定义注解
+oycbest:
+  name: oycbest
+
+spring:
+  application:
+    name: springcloud-user #项目名称
+

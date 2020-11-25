@@ -22,6 +22,7 @@
     <modules>
         <module>springcloud-article</module>
         <module>springcloud-config</module>
+        <module>springcloud-config-client</module>
         <module>springcloud-eureka</module>
         <module>springcloud-user</module>
         <module>springcloud-zuul</module>

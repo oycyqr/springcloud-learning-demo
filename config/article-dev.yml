@@ -1,0 +1,11 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka
+server:
+  port: 8002
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: springcloud‐article
